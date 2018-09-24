@@ -49,9 +49,9 @@ import { WithZeplin } from "storybook-addon-zeplin/vue";
 storiesOf("Button").add("With Figma", () => ({
   components: { WithZeplin },
   template: `
-      <with-zepelin url="https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary">
+      <with-zeplin url="https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary">
         <button>My Button</button>
-      </with-zepelin>
+      </with-zeplin>
     `
 }));
 ```
