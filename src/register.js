@@ -96,7 +96,7 @@ export class ZeplinPanel extends React.Component {
         height="100%"
         width="100%"
         frameBorder="0"
-        src={`https://www.zeplin.com/embed?embed_host=${embedHost}&url=${url}`}
+        src={`${url}`}
         allowFullScreen={allowFullScreen}
       />
     );

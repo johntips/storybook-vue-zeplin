@@ -18,12 +18,12 @@
     "addon",
     "zeplin"
   ],
-  "author": "",
+  "author": "johntips",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hharnisc/storybook-addon-zeplin/issues"
+    "url": "https://github.com/johntips/storybook-vue-zeplin/issues"
   },
-  "homepage": "https://github.com/hharnisc/storybook-addon-zeplin#readme",
+  "homepage": "https://github.com/johntips/storybook-vue-zeplin#readme",
   "devDependencies": {
     "@storybook/react": "3.2.12",
     "@storybook/storybook-deployer": "^2.0.0",
