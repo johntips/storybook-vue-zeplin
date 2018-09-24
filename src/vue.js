@@ -2,7 +2,7 @@ import Vue from "vue";
 import addons from "@storybook/addons";
 import { EVENT_ID } from "./shared";
 
-export const WithZeplin = Vue.component("with-figma", {
+export const WithZeplin = Vue.component("with-zepelin", {
   props: {
     url: { type: String, required: true },
     allowFullScreen: { type: Boolean, default: true },
