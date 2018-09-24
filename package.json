@@ -1,5 +1,5 @@
 {
-  "name": "storybook-addon-figma",
+  "name": "storybook-addon-zeplin",
   "version": "0.1.0",
   "description": "Storybook addon for figma",
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hharnisc/storybook-addon-figma.git"
+    "url": "git+https://github.com/hharnisc/storybook-addon-zeplin.git"
   },
   "keywords": [
     "storybook",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hharnisc/storybook-addon-figma/issues"
+    "url": "https://github.com/hharnisc/storybook-addon-zeplin/issues"
   },
-  "homepage": "https://github.com/hharnisc/storybook-addon-figma#readme",
+  "homepage": "https://github.com/hharnisc/storybook-addon-zeplin#readme",
   "devDependencies": {
     "@storybook/react": "3.2.12",
     "@storybook/storybook-deployer": "^2.0.0",

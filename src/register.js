@@ -1,103 +1,95 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import addons from '@storybook/addons'
-import {
-  ADDON_ID,
-  PANEL_ID,
-  EVENT_ID,
-} from './shared'
+import React from "react";
+import PropTypes from "prop-types";
+import addons from "@storybook/addons";
+import { ADDON_ID, PANEL_ID, EVENT_ID } from "./shared";
 
-export class FigmaPanel extends React.Component {
+export class ZeplinPanel extends React.Component {
   static initialState = {
-    embedHost: 'storybook',
+    embedHost: "storybook",
     url: null,
-    allowFullScreen: true,
-  }
+    allowFullScreen: true
+  };
   static propTypes = {
     channel: PropTypes.object,
-    api: PropTypes.object,
-  }
+    api: PropTypes.object
+  };
   static defaultProps = {
     channel: {},
-    api: {},
-  }
+    api: {}
+  };
 
   constructor(...args) {
-    super(...args)
+    super(...args);
     this.state = {
-      ...FigmaPanel.initialState,
-    }
-    this.onAddFigma = this.onAddFigma.bind(this)
+      ...ZeplinPanel.initialState
+    };
+    this.onAddFigma = this.onAddFigma.bind(this);
   }
 
   componentDidMount() {
-    const { channel, api } = this.props
-    channel.on(EVENT_ID, this.onAddFigma)
+    const { channel, api } = this.props;
+    channel.on(EVENT_ID, this.onAddFigma);
 
     this.stopListeningOnStory = api.onStory(() => {
-      this.onAddFigma({ ...FigmaPanel.initialState })
-    })
+      this.onAddFigma({ ...ZeplinPanel.initialState });
+    });
   }
 
   componentWillUnmount() {
     if (this.stopListeningOnStory) {
-      this.stopListeningOnStory()
+      this.stopListeningOnStory();
     }
 
-    this.unmounted = true
-    const { channel } = this.props
-    channel.removeListener(EVENT_ID, this.onAddFigma)
+    this.unmounted = true;
+    const { channel } = this.props;
+    channel.removeListener(EVENT_ID, this.onAddFigma);
   }
 
   onAddFigma({
     url,
-    embedHost=FigmaPanel.initialState.embedHost,
-    allowFullScreen=FigmaPanel.initialState.allowFullScreen,
+    embedHost = ZeplinPanel.initialState.embedHost,
+    allowFullScreen = ZeplinPanel.initialState.allowFullScreen
   }) {
     this.setState({
       url,
       embedHost,
-      allowFullScreen,
-    })
+      allowFullScreen
+    });
   }
 
   render() {
-    const {
-      url,
-      allowFullScreen,
-      embedHost,
-    } = this.state
+    const { url, allowFullScreen, embedHost } = this.state;
 
     if (!url) {
       return (
         <div
           style={{
-            margin: '1rem',
-            fontFamily: 'Arial',
-            fontSize: '1rem',
-            color: '#444',
-            width: '100%',
-            overflow: 'auto',
+            margin: "1rem",
+            fontFamily: "Arial",
+            fontSize: "1rem",
+            color: "#444",
+            width: "100%",
+            overflow: "auto"
           }}
         >
           <strong>Oh Hey! 👋 Add a Figma design to your story:</strong>
           <pre>
-          {`
+            {`
           import React from 'react'
           import { storiesOf } from '@storybook/react'
-          import { WithFigma } from 'storybook-addon-figma'
+          import { WithZeplin } from 'storybook-addon-zeplin'
 
           storiesOf('Button', module)
             .add('default', () => (
-              <WithFigma
+              <WithZeplin
                 url={'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'}
               >
                 <button>Hello</button>
-              </WithFigma>
+              </WithZeplin>
             ))`}
           </pre>
         </div>
-      )
+      );
     }
     return (
       <iframe
@@ -107,13 +99,13 @@ export class FigmaPanel extends React.Component {
         src={`https://www.figma.com/embed?embed_host=${embedHost}&url=${url}`}
         allowFullScreen={allowFullScreen}
       />
-    )
+    );
   }
 }
 
 addons.register(ADDON_ID, api => {
   addons.addPanel(PANEL_ID, {
-    title: 'Figma',
-    render: () => <FigmaPanel channel={addons.getChannel()} api={api} />,
-  })
-})
+    title: "Figma",
+    render: () => <ZeplinPanel channel={addons.getChannel()} api={api} />
+  });
+});

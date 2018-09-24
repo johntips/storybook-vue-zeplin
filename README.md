@@ -1,24 +1,24 @@
-# storybook-addon-figma
+# storybook-addon-zeplin
 
-![Storybook Addon For Figma](https://raw.githubusercontent.com/hharnisc/storybook-addon-figma/master/storybook-addon-figma.gif)
+![Storybook Addon For Figma](https://raw.githubusercontent.com/hharnisc/storybook-addon-zeplin/master/storybook-addon-zeplin.gif)
 
-Live Demo: https://hharnisc.github.io/storybook-addon-figma
+Live Demo: https://hharnisc.github.io/storybook-addon-zeplin
 
 ## Quickstart
 
 Install the addon
 
 ```sh
-npm i --save-dev storybook-addon-figma
+npm i --save-dev storybook-addon-zeplin
 ```
 
 Register the plugin
 
 ```jsx
 // in .storybook/addons.js
-import '@storybook/addon-actions/register'
+import "@storybook/addon-actions/register";
 // register the Figma addon
-import 'storybook-addon-figma/register'
+import "storybook-addon-zeplin/register";
 ```
 
 Link a Figma design to your story
@@ -26,78 +26,77 @@ Link a Figma design to your story
 ## With React
 
 ```jsx
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { WithFigma } from 'storybook-addon-figma'
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { WithZeplin } from "storybook-addon-zeplin";
 
-storiesOf('Button')
-  .add('With Figma', () => (
-    <WithFigma
-      url={'https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary'}
-    >
-      <button>My Button</button>
-    </WithFigma>
-  ))
+storiesOf("Button").add("With Figma", () => (
+  <WithZeplin
+    url={"https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
+  >
+    <button>My Button</button>
+  </WithZeplin>
+));
 ```
 
 ## With Vue
 
 ```jsx
-import Vue from 'vue'
-import { storiesOf } from '@storybook/vue'
-import { WithFigma } from 'storybook-addon-figma/vue'
+import Vue from "vue";
+import { storiesOf } from "@storybook/vue";
+import { WithZeplin } from "storybook-addon-zeplin/vue";
 
-storiesOf('Button')
-  .add('With Figma', () => ({
-    components: { WithFigma },
-    template: `
+storiesOf("Button").add("With Figma", () => ({
+  components: { WithZeplin },
+  template: `
       <with-figma url="https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary">
         <button>My Button</button>
       </with-figma>
     `
-  }))
+}));
 ```
-
 
 ## Embed a different design on each story
 
 ```jsx
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { WithFigma } from 'storybook-addon-figma'
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { WithZeplin } from "storybook-addon-zeplin";
 
-storiesOf('Button')
-  .add('primary', () => (
-    <WithFigma
-      url={'https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary'}
+storiesOf("Button")
+  .add("primary", () => (
+    <WithZeplin
+      url={"https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
     >
       <button>My Button</button>
-    </WithFigma>
+    </WithZeplin>
   ))
-  .add('secondary', () => (
-    <WithFigma
-      url={'https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Secondary'}
+  .add("secondary", () => (
+    <WithZeplin
+      url={
+        "https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Secondary"
+      }
     >
       <button>My Secondary Button</button>
-    </WithFigma>
-  ))
+    </WithZeplin>
+  ));
 ```
 
 ## Or use the decorator to put the same design on each story
 
 ```jsx
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import figmaDecorator from 'storybook-addon-figma'
-import App from './components/App'
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import figmaDecorator from "storybook-addon-zeplin";
+import App from "./components/App";
 
-storiesOf('App')
-  .addDecorator(figmaDecorator({
-    url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
-  }))
-  .add('My App', () => (
-    <App />
-  ))
+storiesOf("App")
+  .addDecorator(
+    figmaDecorator({
+      url: "https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File"
+    })
+  )
+  .add("My App", () => <App />);
 ```
 
 ## Show Figma design in right panel
@@ -114,24 +113,24 @@ Register the options addon in your `addons.js`
 
 ```jsx
 // in .storybook/addons.js
-import '@storybook/addon-actions/register'
-import 'storybook-addon-figma/register'
+import "@storybook/addon-actions/register";
+import "storybook-addon-zeplin/register";
 // register the options addon
-import '@storybook/addon-options/register';
+import "@storybook/addon-options/register";
 ```
 
 Import and use the `setOptions` function in your `config.js` file
 
 ```jsx
 // in .storybook/config.js
-import * as storybook from '@storybook/react';
+import * as storybook from "@storybook/react";
 // import the options function
-import { setOptions } from '@storybook/addon-options';
+import { setOptions } from "@storybook/addon-options";
 
 // set option to show panel in right side
 setOptions({
-  downPanelInRight: true,
+  downPanelInRight: true
 });
 
-storybook.configure(() => require('./stories'), module);
+storybook.configure(() => require("./stories"), module);
 ```
