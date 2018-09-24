@@ -23,15 +23,15 @@ export class ZeplinPanel extends React.Component {
     this.state = {
       ...ZeplinPanel.initialState
     };
-    this.onAddFigma = this.onAddFigma.bind(this);
+    this.onAddzeplin = this.onAddzeplin.bind(this);
   }
 
   componentDidMount() {
     const { channel, api } = this.props;
-    channel.on(EVENT_ID, this.onAddFigma);
+    channel.on(EVENT_ID, this.onAddzeplin);
 
     this.stopListeningOnStory = api.onStory(() => {
-      this.onAddFigma({ ...ZeplinPanel.initialState });
+      this.onAddzeplin({ ...ZeplinPanel.initialState });
     });
   }
 
@@ -42,10 +42,10 @@ export class ZeplinPanel extends React.Component {
 
     this.unmounted = true;
     const { channel } = this.props;
-    channel.removeListener(EVENT_ID, this.onAddFigma);
+    channel.removeListener(EVENT_ID, this.onAddzeplin);
   }
 
-  onAddFigma({
+  onAddzeplin({
     url,
     embedHost = ZeplinPanel.initialState.embedHost,
     allowFullScreen = ZeplinPanel.initialState.allowFullScreen
@@ -72,7 +72,7 @@ export class ZeplinPanel extends React.Component {
             overflow: "auto"
           }}
         >
-          <strong>Oh Hey! 👋 Add a Figma design to your story:</strong>
+          <strong>Oh Hey! 👋 Add a zeplin design to your story:</strong>
           <pre>
             {`
           import React from 'react'
@@ -82,7 +82,7 @@ export class ZeplinPanel extends React.Component {
           storiesOf('Button', module)
             .add('default', () => (
               <WithZeplin
-                url={'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'}
+                url={'https://www.zeplin.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'}
               >
                 <button>Hello</button>
               </WithZeplin>
@@ -96,7 +96,7 @@ export class ZeplinPanel extends React.Component {
         height="100%"
         width="100%"
         frameBorder="0"
-        src={`https://www.figma.com/embed?embed_host=${embedHost}&url=${url}`}
+        src={`https://www.zeplin.com/embed?embed_host=${embedHost}&url=${url}`}
         allowFullScreen={allowFullScreen}
       />
     );
@@ -105,7 +105,7 @@ export class ZeplinPanel extends React.Component {
 
 addons.register(ADDON_ID, api => {
   addons.addPanel(PANEL_ID, {
-    title: "Figma",
+    title: "zeplin",
     render: () => <ZeplinPanel channel={addons.getChannel()} api={api} />
   });
 });

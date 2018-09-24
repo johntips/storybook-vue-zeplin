@@ -1,6 +1,6 @@
 # storybook-addon-zeplin
 
-![Storybook Addon For Figma](https://raw.githubusercontent.com/hharnisc/storybook-addon-zeplin/master/storybook-addon-zeplin.gif)
+![Storybook Addon For zeplin](https://raw.githubusercontent.com/hharnisc/storybook-addon-zeplin/master/storybook-addon-zeplin.gif)
 
 Live Demo: https://hharnisc.github.io/storybook-addon-zeplin
 
@@ -17,11 +17,11 @@ Register the plugin
 ```jsx
 // in .storybook/addons.js
 import "@storybook/addon-actions/register";
-// register the Figma addon
+// register the zeplin addon
 import "storybook-addon-zeplin/register";
 ```
 
-Link a Figma design to your story
+Link a zeplin design to your story
 
 ## With React
 
@@ -30,9 +30,9 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { WithZeplin } from "storybook-addon-zeplin";
 
-storiesOf("Button").add("With Figma", () => (
+storiesOf("Button").add("With zeplin", () => (
   <WithZeplin
-    url={"https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
+    url={"https://www.zeplin.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
   >
     <button>My Button</button>
   </WithZeplin>
@@ -46,10 +46,10 @@ import Vue from "vue";
 import { storiesOf } from "@storybook/vue";
 import { WithZeplin } from "storybook-addon-zeplin/vue";
 
-storiesOf("Button").add("With Figma", () => ({
+storiesOf("Button").add("With zeplin", () => ({
   components: { WithZeplin },
   template: `
-      <with-zeplin url="https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary">
+      <with-zeplin url="https://www.zeplin.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary">
         <button>My Button</button>
       </with-zeplin>
     `
@@ -66,7 +66,9 @@ import { WithZeplin } from "storybook-addon-zeplin";
 storiesOf("Button")
   .add("primary", () => (
     <WithZeplin
-      url={"https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
+      url={
+        "https://www.zeplin.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"
+      }
     >
       <button>My Button</button>
     </WithZeplin>
@@ -74,7 +76,7 @@ storiesOf("Button")
   .add("secondary", () => (
     <WithZeplin
       url={
-        "https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Secondary"
+        "https://www.zeplin.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Secondary"
       }
     >
       <button>My Secondary Button</button>
@@ -87,21 +89,21 @@ storiesOf("Button")
 ```jsx
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import figmaDecorator from "storybook-addon-zeplin";
+import zeplinDecorator from "storybook-addon-zeplin";
 import App from "./components/App";
 
 storiesOf("App")
   .addDecorator(
-    figmaDecorator({
-      url: "https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File"
+    zeplinDecorator({
+      url: "https://www.zeplin.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File"
     })
   )
   .add("My App", () => <App />);
 ```
 
-## Show Figma design in right panel
+## Show zeplin design in right panel
 
-If you find that the Figma panel at the bottom is not big enough to fit your designs, it is possible to move the panel to the right of the window instead, where it is possible to give it more space. This requires the [@storybook/addons-options](https://github.com/storybooks/storybook/tree/master/addons/options) addon. Note however that it is only possible to do this for **all** stories at once, and will move all addon panels to the right. A simple setup is shown here.
+If you find that the zeplin panel at the bottom is not big enough to fit your designs, it is possible to move the panel to the right of the window instead, where it is possible to give it more space. This requires the [@storybook/addons-options](https://github.com/storybooks/storybook/tree/master/addons/options) addon. Note however that it is only possible to do this for **all** stories at once, and will move all addon panels to the right. A simple setup is shown here.
 
 Install the addon
 

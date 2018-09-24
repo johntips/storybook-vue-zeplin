@@ -1,7 +1,7 @@
 {
   "name": "storybook-addon-zeplin",
   "version": "0.1.0",
-  "description": "Storybook addon for figma",
+  "description": "Storybook addon for zeplin",
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "node .scripts/npm-prepublish.js",
@@ -16,7 +16,7 @@
   "keywords": [
     "storybook",
     "addon",
-    "figma"
+    "zeplin"
   ],
   "author": "",
   "license": "MIT",

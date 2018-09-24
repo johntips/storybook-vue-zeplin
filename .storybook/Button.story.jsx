@@ -13,19 +13,23 @@ const style = {
 };
 
 storiesOf("Button")
-  .add("With Figma", () => (
+  .add("With zeplin", () => (
     <WithZeplin
-      url={"https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
+      url={
+        "https://www.zeplin.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"
+      }
     >
       <button style={style}>Button Primary</button>
     </WithZeplin>
   ))
-  .add("With Figma No Fullscreen Option", () => (
+  .add("With zeplin No Fullscreen Option", () => (
     <WithZeplin
-      url={"https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"}
+      url={
+        "https://www.zeplin.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary"
+      }
       allowFullScreen={false}
     >
       <button style={style}>Button Primary</button>
     </WithZeplin>
   ))
-  .add("Without Figma", () => <button style={style}>Button Primary</button>);
+  .add("Without zeplin", () => <button style={style}>Button Primary</button>);

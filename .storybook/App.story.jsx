@@ -1,45 +1,47 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import figmaDecorator from '../src/index'
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import zeplinDecorator from "../src/index";
 
-storiesOf('App')
-  .addDecorator(figmaDecorator({
-    url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
-    allowFullScreen: true
-  }))
-  .add('My App', () => (
+storiesOf("App")
+  .addDecorator(
+    zeplinDecorator({
+      url: "https://www.zeplin.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File",
+      allowFullScreen: true
+    })
+  )
+  .add("My App", () => (
     <div
       style={{
-        background: 'black',
-        color: 'white',
+        background: "black",
+        color: "white",
         height: 640,
         width: 320,
-        fontFamily: 'Arial',
+        fontFamily: "Arial"
       }}
     >
       <div
         style={{
-          padding: '1rem 0',
-          textAlign: 'center'
+          padding: "1rem 0",
+          textAlign: "center"
         }}
       >
         @Khloe
       </div>
       <div
         style={{
-          padding: '1rem 0',
-          textAlign: 'center'
+          padding: "1rem 0",
+          textAlign: "center"
         }}
       >
         <div
           style={{
-            background: 'white',
-            height: '5rem',
-            width: '5rem',
-            borderRadius: '10rem',
-            display: 'inline-block'
+            background: "white",
+            height: "5rem",
+            width: "5rem",
+            borderRadius: "10rem",
+            display: "inline-block"
           }}
         />
       </div>
     </div>
-  ))
+  ));
